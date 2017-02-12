@@ -1,0 +1,30 @@
+{
+  "name": "ang-node-nosql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anodenosql/ang-node-nosql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anodenosql/ang-node-nosql/issues"
+  },
+  "homepage": "https://github.com/anodenosql/ang-node-nosql#readme",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.21",
+    "body-parser": "^1.16.1",
+    "ejs": "^2.5.5",
+    "es6-shim": "^0.35.3",
+    "express": "^4.14.1",
+    "marklogic": "^1.0.6",
+    "reflect-metadata": "^0.1.9",
+    "uuid": "^3.0.1",
+    "zone": "^0.3.4"
+  }
+}
