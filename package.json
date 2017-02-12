@@ -18,6 +18,7 @@
   "homepage": "https://github.com/anodenosql/ang-node-nosql#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "bower": "^1.8.0",
     "ejs": "^2.5.5",
     "es6-shim": "^0.35.3",
     "express": "^4.14.1",
