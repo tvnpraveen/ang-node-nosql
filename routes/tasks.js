@@ -48,32 +48,31 @@ router.get("/task/:id", function(req, res, next){
 
 //Create task
 router.post("/task", function(req, res, next){
-	var tasks = req.body;
-	for(var i = 0; i < tasks.length; i++) {
-		if(!tasks[i].title){
-			res.status(400);
-			res.json({
-				"error" : "Bad Data"
-			});
-		} else {
-			tasks[i]._id = uuid();
-			if(env == marklogicEnvName){
-				db.documents.write(
-				  {
-				      uri: "/" + tasks[i]._id + ".json",
-				      contentType: "application/json",
-				      collections: ["test data"],
-				      content: tasks[i]
-				    }
-				).
-				  result(function(response){
-				    res.json(JSON.stringify(response))
-				  });
-
-			}
+	var task = req.body;
+	if(!task.title){
+		res.status(400);
+		res.json({
+			"error" : "Bad Data"
+		});
+	} else {
+		task._id = uuid();
+		if(env == marklogicEnvName){
+			db.documents.write(
+			  {
+			      uri: "/" + task._id + ".json",
+			      contentType: "application/json",
+			      collections: ["test data"],
+			      content: task
+			    }
+			).
+			  result(function(response){
+			    res.json(JSON.stringify(response))
+			  });
 
 		}
+
 	}
+	
 });
 
 // Delete Task by id

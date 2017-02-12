@@ -1,0 +1,21 @@
+{
+  "name": "ang-node-nosql",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Praveen <tvnpraveen@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/anodenosql/ang-node-nosql",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
