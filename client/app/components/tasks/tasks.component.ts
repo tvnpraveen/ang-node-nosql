@@ -27,7 +27,7 @@ export class TasksComponent  {
 
 		this.taskService.addTask(newTask)
 			.subscribe(task => {
-				this.tasks.push(newTask);
+				this.tasks.push(task);
 				this.title = '';
 			});
 

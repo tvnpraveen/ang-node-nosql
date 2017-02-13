@@ -29,7 +29,7 @@ var TasksComponent = (function () {
         };
         this.taskService.addTask(newTask)
             .subscribe(function (task) {
-            _this.tasks.push(newTask);
+            _this.tasks.push(task);
             _this.title = '';
         });
     };
