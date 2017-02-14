@@ -20,6 +20,7 @@
     "body-parser": "^1.16.1",
     "bower": "^1.8.0",
     "couchbase": "^2.3.0",
+    "documentdb": "^1.10.2",
     "ejs": "^2.5.5",
     "es6-shim": "^0.35.3",
     "express": "^4.14.1",

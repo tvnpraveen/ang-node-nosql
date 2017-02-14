@@ -11,9 +11,10 @@ function grab(flag){
 //Read environment 
 var environment = grab("--env");
 global.environment = environment;
+console.log("Application running on database - "+environment)
 
 var index = require("./routes/index");
-var tasks = require("./routes/tasks");
+var tasks = require("./routes/"+environment.toLowerCase()+"-tasks");
 
 var port = 3000;
 

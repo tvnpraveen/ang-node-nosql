@@ -4,7 +4,6 @@ var env =  {
 }
 
 
-
 module.exports = {
   connection: env       // Export the connection
 }
