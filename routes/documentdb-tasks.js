@@ -5,7 +5,7 @@ var router = express();
 
 
 var DocumentDBClient = require('documentdb').DocumentClient;
-var config = require("../env/documentdb-env.js")
+var config = require("../env/documentdb-env.js");
 
 var dbClient = new DocumentDBClient(config.host, {
     masterKey: config.authKey
@@ -14,6 +14,8 @@ var dbClient = new DocumentDBClient(config.host, {
 var database = null;
 var collection = null;
 
+
+
 init = function() {
 	config.getOrCreateDatabase(dbClient, config.databaseId, function(err, db){
 		if(err) {
@@ -21,7 +23,7 @@ init = function() {
 		} else {
 
 		 database = db;
-		 collection = config.getOrCreateCollection(dbClient, database, config.databaseId, function(err, coll){
+		 collection = config.getOrCreateCollection(dbClient, database, config.collectionId, function(err, coll){
 		 	if(err) {
 				return err;
 			} else {
@@ -33,6 +35,8 @@ init = function() {
 	});
 
 }
+
+init();
 
 getTask = function(taskId, callback) {
         var querySpec = {
@@ -56,7 +60,7 @@ getTask = function(taskId, callback) {
 
 //Retrieve all tasks
 router.get("/tasks", function(req, res, next){
-	init();
+	
 
 	var querySpec = {
             query: 'SELECT * FROM root r'
@@ -142,7 +146,7 @@ router.put("/task/:id", function(req, res, next){
 			if(error) {
 				res.json(error);
 			} else {
-				result.isDone = true;
+				result.isDone = task.isDone;
 				dbClient.replaceDocument(result._self, result, function (err, replaced) {
 		            if (err) {
 		                res.json(err);
