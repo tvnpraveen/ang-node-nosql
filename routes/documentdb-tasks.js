@@ -23,7 +23,7 @@ init = function() {
 		} else {
 
 		 database = db;
-		 collection = config.getOrCreateCollection(dbClient, database, config.collectionId, function(err, coll){
+		 config.getOrCreateCollection(dbClient, database, config.collectionId, function(err, coll){
 		 	if(err) {
 				return err;
 			} else {

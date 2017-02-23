@@ -1,7 +1,7 @@
 {
   "name": "ang-node-nosql",
   "version": "1.0.0",
-  "description": "",
+  "description": "Angular NodeJS NoSQL Getting Started",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/anodenosql/ang-node-nosql#readme",
   "dependencies": {
+    "async": "^2.1.5",
     "body-parser": "^1.16.1",
     "bower": "^1.8.0",
     "couchbase": "^2.3.0",
@@ -25,6 +26,7 @@
     "es6-shim": "^0.35.3",
     "express": "^4.14.1",
     "marklogic": "^1.0.6",
+    "redis": "^2.6.5",
     "reflect-metadata": "^0.1.9",
     "uuid": "^3.0.1",
     "zone": "^0.3.4"
