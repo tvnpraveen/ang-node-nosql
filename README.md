@@ -66,11 +66,14 @@ Update _env/documentdb-env.js_ with the details configured on Azure. Details of 
 	_config.host_ = process.env.HOST || "<URI>";
 	_config.authKey_ = process.env.AUTH_KEY || "<PRIMARY KEY>";
 
+ ![Alt text](https://github.com/anodenosql/ang-node-nosql/blob/master/readme/keys.png?raw=true "Keys")
 
 	_config.databaseId_ = "documentdb456"; - Any database id can be specified, this will be created from the code
 	_config.collectionId_ = "tasks"; Any Collection id can be specified, this will created for the above databaseId from the code if it is not created already.
 
- Once the database and collection are created, they can be found here\
+ Once the database and collection are created, they can be found here
+
+![Alt text](https://github.com/anodenosql/ang-node-nosql/blob/master/readme/documentscollections.png?raw=true "Databases and Collections")
  
 
 ## Compile/Install
