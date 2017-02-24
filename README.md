@@ -24,6 +24,8 @@ Install the NoSQL Database from the above supported databases
 
 ##### DocumentDB - Register at [https://portal.azure.com/#](https://portal.azure.com/#)
 
+##### Redis - [https://redis.io/download](https://redis.io/download) - Install and Start the Server
+
 
 ## Database Configuration
 
@@ -42,10 +44,13 @@ Requires configuration if there is a need for custom rest server and custom data
 - Enter ID(unique account string), Select DocumentDB, Free Trial, Create new for resource group(enter a name), and location as desired.
 - Click on Create
 
+##### Redis
+No custom configuration is required
+
 ## Application Configuration
 
 ##### MarkLogic
-Update _env/marklogic-env.js_ with the following details. Update if different configuration is required
+_env/marklogic-env.js_ has the following details. Update if different configuration is required
 
 	database: "Documents",
 	host: "localhost",
@@ -55,7 +60,7 @@ Update _env/marklogic-env.js_ with the following details. Update if different co
 	authType: "DIGEST"
 
 ##### Couchbase
-Update _env/couchbase-env.js_ with the following details. Change the hostname or bucket name as required
+_env/couchbase-env.js_ has the following details. Change the hostname or bucket name as required
 
 	cluster: "couchbase://localhost",
 	bucket: "default"
@@ -75,6 +80,11 @@ Update _env/documentdb-env.js_ with the details configured on Azure. Details of 
 
 ![Alt text](https://github.com/anodenosql/ang-node-nosql/blob/master/readme/documentscollections.png?raw=true "Databases and Collections")
  
+##### Redis
+_env/redis-env.js_ has the following details. Update if different configuration is required
+
+	host: "localhost",     
+	port: 6379
 
 ## Compile/Install
 
@@ -86,18 +96,32 @@ If there are changes to client, compile using "npm start" on ang-node-nosql/clie
 
 ## Run
 
-- To use MarkLogic as back end NoSQL database use the following command
+- To use MarkLogic as backend NoSQL database use the following command
 	
 	_node server --env MarkLogic_
 
-- To use Couchbase as back end NoSQL database use the following command
+- To use Couchbase as backend NoSQL database use the following command
 
 	_node server --env Couchbase_
 
-- To use DocumentDB as back end NoSQL database use the following command
+- To use DocumentDB as backend NoSQL database use the following command
 
 	_node server --env DocumentDB_
+	
+- To use Resis as backend NoSQL database use the following command
+
+	_node server --env Redis_
 
 ## References
-- DocumentDB NodeJS API
- - https://azure.github.io/azure-documentdb-node/index.html
+##### MarkLogic
+ - NodeJS API [http://developer.marklogic.com/learn/node-client-api](http://developer.marklogic.com/learn/node-client-api)
+
+##### Couchbase
+ - NodeJS - [https://developer.couchbase.com/documentation/server/current/sdk/nodejs/start-using-sdk.html](https://developer.couchbase.com/documentation/server/current/sdk/nodejs/start-using-sdk.html)
+
+##### DocumentDB 
+ - NodeJS API - [https://azure.github.io/azure-documentdb-node/index.html]()
+
+##### Redis 
+ - NodeJS API - [http://redis.js.org/](http://redis.js.org/)
+ - Async API - [http://caolan.github.io/async/](http://caolan.github.io/async/)
