@@ -26,6 +26,7 @@
     "es6-shim": "^0.35.3",
     "express": "^4.14.1",
     "marklogic": "^1.0.6",
+    "mongodb": "^2.2.24",
     "redis": "^2.6.5",
     "reflect-metadata": "^0.1.9",
     "uuid": "^3.0.1",

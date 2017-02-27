@@ -1,7 +1,6 @@
 
-This project is a three tier application(UI Layer -&gt; AngularJS2, Middle Layer -&gt; NodeJS, Backend - Various NoSQL Databases) which can run on different NoSQL databases. This framework provides an idea of getting started with a NoSQL database for performing simple CRUD operations.
+This project is a three tier application having presentation, business logic and data layers. We used AngularJS for user interface and Node.js for business logic (accessing data) and multiple NoSQL databases for data storage. Our goal is to have a common user interface and an interoperable middle layer to access various NoSQL databases for performing simple CRUD operation. In the process, we were able to learn multiple NoSQL databases. We believe this work will be useful to others who are in need to explore NoSQL databases in a short period of time and hence we share our work here.
 
-This will give an idea on how the databases work with simple operations relatively.
 
 
 The following NoSQL databases are supported currently.
@@ -10,6 +9,7 @@ The following NoSQL databases are supported currently.
 - MarkLogic 8
 - Couchbase 4.5
 - Redis 3.2.8
+- MongoDB 3.4.1
 
 ### Cloud
 - Microsoft Azure DocumentDB
@@ -25,6 +25,9 @@ Install the NoSQL Database from the above supported databases
 ##### DocumentDB - Register at [https://portal.azure.com/#](https://portal.azure.com/#)
 
 ##### Redis - [https://redis.io/download](https://redis.io/download) - Install and Start the Server
+
+##### MongoDB - [https://www.mongodb.com/download-center#community](https://www.mongodb.com/download-center#community) 
+
 
 
 ## Database Configuration
@@ -45,6 +48,9 @@ Requires configuration if there is a need for custom rest server and custom data
 - Click on Create
 
 ##### Redis
+No custom configuration is required
+
+##### MongoDB
 No custom configuration is required
 
 ## Application Configuration
@@ -86,6 +92,14 @@ _env/redis-env.js_ has the following details. Update if different configuration 
 	host: "localhost",     
 	port: 6379
 
+##### MongoDB
+_env/mongodb-env.js has the following details. Update if different configuration
+is required
+
+	host: "mongodb://localhost",     
+	port: 27017,
+	database: "myproject"
+
 ## Compile/Install
 
 - Run "npm install" on ang-node-nosql/
@@ -107,10 +121,14 @@ If there are changes to client, compile using "npm start" on ang-node-nosql/clie
 - To use DocumentDB as backend NoSQL database use the following command
 
 	_node server --env DocumentDB_
-	
-- To use Resis as backend NoSQL database use the following command
+
+- To use Redis as backend NoSQL database use the following command
 
 	_node server --env Redis_
+	
+- To use MongoDB as backend NoSQL database use the following command
+
+	_node server --env MongoDB_
 
 ## References
 ##### MarkLogic
@@ -125,3 +143,7 @@ If there are changes to client, compile using "npm start" on ang-node-nosql/clie
 ##### Redis 
  - NodeJS API - [http://redis.js.org/](http://redis.js.org/)
  - Async API - [http://caolan.github.io/async/](http://caolan.github.io/async/)
+
+##### MongoDB
+ - MongoDB NodeJS API - [https://mongodb.github.io/node-mongodb-native/](https://mongodb.github.io/node-mongodb-native/)
+ 
