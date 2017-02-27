@@ -13,21 +13,28 @@ The following NoSQL databases are supported currently.
 
 ### Cloud
 - Microsoft Azure DocumentDB
+- Google Cloud Datastore
 
 ## Setup
 
-Install the NoSQL Database from the above supported databases
+Install/Register a NoSQL Database
 
-##### MarkLogic - [https://docs.marklogic.com/guide/installation](https://docs.marklogic.com/guide/installation)
+##### MarkLogic - [Install, Start and Configure the MarkLogic server](https://docs.marklogic.com/guide/installation/procedures#id_28962)
 
-##### Couchbase - [https://developer.couchbase.com/documentation/server/current/getting-started/installing.html](https://developer.couchbase.com/documentation/server/current/getting-started/installing.html)
+##### Couchbase - [Install and Start the server](https://developer.couchbase.com/documentation/server/current/getting-started/installing.html)
 
-##### DocumentDB - Register at [https://portal.azure.com/#](https://portal.azure.com/#)
+##### DocumentDB 
+ - [Create an account - Free Trial(30 days/ $200 Credit)](https://portal.azure.com/#)
 
-##### Redis - [https://redis.io/download](https://redis.io/download) - Install and Start the Server
+##### Redis - [Install and Start the server](https://redis.io/download)
 
-##### MongoDB - [https://www.mongodb.com/download-center#community](https://www.mongodb.com/download-center#community) 
+##### MongoDB - [Download](https://www.mongodb.com/download-center#community) 
 
+##### Datastore
+- [Create a Google Cloud account - Free Trial(60 days/ $300 Credit)](https://console.cloud.google.com/freetrial)
+- [Create a Project](
+  https://console.cloud.google.com/iam-admin/projects)
+- [Enable Datastore Google APIs](https://console.cloud.google.com/flows/enableapi?apiid=datastore.googleapis.com)
 
 
 ## Database Configuration
@@ -52,6 +59,14 @@ No custom configuration is required
 
 ##### MongoDB
 No custom configuration is required
+
+##### Datastore
+- [Create a service account](https://console.cloud.google.com/iam-admin/serviceaccounts/project)
+ - Account Name : sample name
+ - Select a Role : Datastore > Datastore Owner
+ - Furnish a new private key : Select and keytype: JSON
+ - Click on Create button. This will download the .json key file 
+- Copy the downloaded json file to the project as _/env/datastore.json_ 
 
 ## Application Configuration
 
@@ -100,6 +115,13 @@ is required
 	port: 27017,
 	database: "myproject"
 
+##### Datastore
+Update _env/datastore-env.js_ with the projectId from Google Cloud Console. 
+
+	projectId: "sample-id",     
+  	kind : "Tasks"
+
+
 ## Compile/Install
 
 - Run "npm install" on ang-node-nosql/
@@ -130,20 +152,28 @@ If there are changes to client, compile using "npm start" on ang-node-nosql/clie
 
 	_node server --env MongoDB_
 
+- To use Google Cloud Datastore as backend NoSQL database use the following command
+
+	_node server --env Datastore_
+
 ## References
 ##### MarkLogic
- - NodeJS API [http://developer.marklogic.com/learn/node-client-api](http://developer.marklogic.com/learn/node-client-api)
+ - [NodeJS API](http://developer.marklogic.com/learn/node-client-api)
 
 ##### Couchbase
- - NodeJS - [https://developer.couchbase.com/documentation/server/current/sdk/nodejs/start-using-sdk.html](https://developer.couchbase.com/documentation/server/current/sdk/nodejs/start-using-sdk.html)
+ - [NodeJS API](https://developer.couchbase.com/documentation/server/current/sdk/nodejs/start-using-sdk.html)
 
-##### DocumentDB 
- - NodeJS API - [https://azure.github.io/azure-documentdb-node/index.html]()
+##### Microsoft Azure DocumentDB
+ - [Getting Started](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-nodejs-get-started) 
+ - [NodeJS API](https://azure.github.io/azure-documentdb-node/index.html)
 
 ##### Redis 
- - NodeJS API - [http://redis.js.org/](http://redis.js.org/)
- - Async API - [http://caolan.github.io/async/](http://caolan.github.io/async/)
+ - [NodeJS API](http://redis.js.org/)
+ - [Async API](http://caolan.github.io/async/)
 
 ##### MongoDB
- - MongoDB NodeJS API - [https://mongodb.github.io/node-mongodb-native/](https://mongodb.github.io/node-mongodb-native/)
- 
+ - [NodeJS API](https://mongodb.github.io/node-mongodb-native/)
+
+##### Google Cloud Datastore
+ - [Overview & Docs](https://cloud.google.com/datastore/docs/concepts/overview?hl=en_US)
+ - [NodeJS API](https://cloud.google.com/datastore/docs/reference/libraries)

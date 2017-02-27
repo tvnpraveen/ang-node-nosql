@@ -17,7 +17,9 @@ if(!environment){
 		" - MarkLogic \n"+
 		" - Couchbase \n"+
 		" - Documentdb \n"+
-		" - Redis \n"
+		" - Redis \n"+
+		" - MongoDB \n"+
+		" - Datastore \n"
 	);
 } else {
 
