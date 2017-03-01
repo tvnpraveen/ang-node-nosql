@@ -11,9 +11,11 @@ The following NoSQL databases are supported currently.
 - Redis 3.2.8
 - MongoDB 3.4.1
 
+
 ### Cloud
 - Microsoft Azure DocumentDB
 - Google Cloud Datastore
+- Amazon DynamoDB
 
 ## Setup
 
@@ -35,6 +37,9 @@ Install/Register a NoSQL Database
 - [Create a Project](
   https://console.cloud.google.com/iam-admin/projects)
 - [Enable Datastore Google APIs](https://console.cloud.google.com/flows/enableapi?apiid=datastore.googleapis.com)
+
+##### DynamoDB
+- [Create a AWS account](https://aws.amazon.com)
 
 
 ## Database Configuration
@@ -67,6 +72,35 @@ No custom configuration is required
  - Furnish a new private key : Select and keytype: JSON
  - Click on Create button. This will download the .json key file 
 - Copy the downloaded json file to the project as _/env/datastore.json_ 
+
+##### DynamoDB
+- [Create a AWS account](https://aws.amazon.com)
+- Create access key
+	- Select Services -> IAM -> Users -> Add user
+		- Enter user name
+		- Select Access type for Programmatic access
+		- Create user and no need to specify persmissions and skip to complete page
+			-  Download the .csv file
+			-  Open the .csv file
+			-  Copy the access key ID and secret access key to a file and the name the file as "credentials" as shown below
+			_ ___________________________
+			
+				aws_access_key_id = AKIAJJT7TPHFA4ALMAX
+				aws_secret_access_key = O2z3Q/cEJSe8cmxf9uFIhK0yPC4McDSjiqgjdXDL
+			- Select Close
+
+	- Select Services -> IAM -> Users 
+		- Select the user link that you created and for which downloaded the access key file
+		- Select Permissions
+			- Select Add inline policy link
+				- Select Policy Generator and  click Select 
+					- Select/enter the following values
+						- Effect : Allow
+						- AWS Service : AWS DynamoDB
+						- Actitons : All Actions(*)
+						- ARN : *
+						- Select Add Statement
+						- Select Apply Policy
 
 ## Application Configuration
 
@@ -121,6 +155,8 @@ Update _env/datastore-env.js_ with the projectId from Google Cloud Console.
 	projectId: "sample-id",     
   	kind : "Tasks"
 
+##### DynamoDB
+Update _env/dynamodb-env.js with the endpoint information if you are using locally installed DynamoDB
 
 ## Compile/Install
 
@@ -156,6 +192,10 @@ If there are changes to client, compile using "npm start" on ang-node-nosql/clie
 
 	_node server --env Datastore_
 
+- To use Amazon DynamoDB as backend NoSQL database use the following command
+
+     _node server --env DynamoDB
+
 ## References
 ##### MarkLogic
  - [NodeJS API](http://developer.marklogic.com/learn/node-client-api)
@@ -177,3 +217,7 @@ If there are changes to client, compile using "npm start" on ang-node-nosql/clie
 ##### Google Cloud Datastore
  - [Overview & Docs](https://cloud.google.com/datastore/docs/concepts/overview?hl=en_US)
  - [NodeJS API](https://cloud.google.com/datastore/docs/reference/libraries)
+
+##### Amazon DynamoDB
+ - [Overview & Docs](https://aws.amazon.com/documentation/dynamodb/)
+ 

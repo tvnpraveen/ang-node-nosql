@@ -19,6 +19,7 @@
   "dependencies": {
     "@google-cloud/datastore": "^0.7.0",
     "async": "^2.1.5",
+    "aws-sdk": "^2.22.0",
     "body-parser": "^1.16.1",
     "bower": "^1.8.0",
     "couchbase": "^2.3.0",

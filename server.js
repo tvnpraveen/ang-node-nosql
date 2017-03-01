@@ -19,7 +19,8 @@ if(!environment){
 		" - Documentdb \n"+
 		" - Redis \n"+
 		" - MongoDB \n"+
-		" - Datastore \n"
+		" - Datastore \n"+
+		" - DynamoDB\n"
 	);
 } else {
 

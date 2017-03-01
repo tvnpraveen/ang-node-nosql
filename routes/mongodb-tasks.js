@@ -34,6 +34,7 @@ router.get("/task/:id", function(req, res, next){
 //Create task
 router.post("/task", function(req, res, next){
 	var task = req.body;
+	console.log(task);
 	if(!task.title){
 		res.status(400);
 		res.json({
