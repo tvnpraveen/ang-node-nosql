@@ -82,7 +82,7 @@ No custom configuration is required
 		- Create user and no need to specify persmissions and skip to complete page
 			-  Download the .csv file
 			-  Open the .csv file
-			-  Copy the access key ID and secret access key to a file and the name the file as "credentials" as shown below
+			-  Copy the access key ID and secret access key to a file and the name the file as /home/user/.aws/credentials (for Mac) or c:\users\user\\.aws\credentials as shown below:
 			_ ___________________________
 			
 				aws_access_key_id = AKIAJJT7TPHFA4ALMAX
